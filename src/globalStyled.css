@@ -1,0 +1,24 @@
+
+.sc-name h4, .sc-info h3,
+h1 {
+    color: #222;
+}
+
+.sc-time {
+    color: #606060;
+}
+
+.tab-pane.fade.show.active {
+    color: #000;
+}
+
+.separator span:before, .separator span:after {
+	border-bottom: 1px solid #0000001a;
+}
+
+header.transparent.header-mobile.height-auto {
+    height: auto;
+}
+body p {
+    color: #606060;
+}

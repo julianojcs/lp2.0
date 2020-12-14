@@ -1,0 +1,140 @@
+const SectionRegister = () => {
+    return(
+        <>
+        {/* section begin */}
+        <section id="section-register" className="text-light" data-bgcolor="#222222">
+            <div className="wm wm-border dark wow fadeInDown">inscrição</div>
+                <div className="container">
+                    <div className="row">
+                    <div className="col-md-6 offset-md-3 text-center wow fadeInUp">
+                        <h1>Inscreva-se</h1>
+                        <div className="separator"><span><i className="fa fa-square" /></span></div>
+                        <div className="spacer-single" />
+                    </div>
+                    <div className="col-md-8 offset-md-2 wow fadeInUp">
+                        <form name="contactForm" id="contact_form" method="post" action="email.php">
+                        <div className="row">
+                            <div className="col-md-6 mb-0">
+                            <div id="name_error" className="error">Insira seu nome</div>
+                            <div>
+                                <input type="text" name="name" id="name" className="form-control" placeholder="Nome Completo *" />
+                            </div>
+                            <div id="email_error" className="error">Insira seu E-mail</div>
+                            <div>
+                                <input type="text" name="email" id="email" className="form-control" placeholder="Email *" />
+                            </div>
+                            <div id="specialty_error" className="error">Insira seu número de telefone</div>
+                            <div>
+                                <input type="text" name="specialty" id="specialty" className="form-control" placeholder="Especialidade *" />
+                            </div>
+                            <div id="phone_error" className="error">Insira seu número de telefone</div>
+                            <div>
+                                <input type="text" name="phone" id="phone" className="form-control" placeholder="Telefone com DDD *" />
+                            </div>
+                            </div>
+                            <div className="col-md-6">
+                            <div id="city_error" className="error">Insira sua cidade</div>
+                            <div>
+                                <input type="text" name="city" id="city" className="form-control" placeholder="Cidade *" />
+                            </div>
+                            <div id="state_error" className="error">Insira seu estado</div>
+                            <div className="select-form ">
+                                <select name="state" id="state" className="form-control select-form-text" placeholder="Estado *">
+                                <option value selected>Estado *</option>
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espirito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                                </select>
+                            </div>
+                            <div id="crm_error" className="error">Insira um CRM Válido</div>
+                            <div>
+                                <input type="text" name="crm" id="crm" className="form-control" placeholder="CRM *" />
+                            </div>
+                            <div id="ufcrm_error" className="error">Insira seu estado</div>
+                            <div className="select-form ">
+                                <select name="ufcrm" id="ufcrm" className="form-control select-form-text" placeholder="Estado *">
+                                <option value selected>Estado *</option>
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espirito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                                </select>
+                            </div>
+                            </div>
+                        </div>
+                        </form>
+                        <form className="was-validated">
+                        <div className="custom-control custom-checkbox mb-3">
+                            <input type="checkbox" className="custom-control-input" id="customControlValidation1" required />
+                            <label className="custom-control-label" htmlFor="customControlValidation1">
+                            Declaro que as informações acima prestadas são verdadeiras e assumo a inteira responsabilidade pelas mesmas, ciente das penalidades cabíveis da lei.
+                            </label>
+                            {/* <div class="invalid-feedback">Example invalid feedback text</div> */}
+                        </div>
+                        <div className="row wow fadeInUp">
+                            <div className="col-md-12 text-center">
+                            <p id="submit">
+                                <input type="submit" id="send_message" defaultValue="Inscrever-se" className="btn btn-line" />
+                            </p>
+                            <div id="mail_success" className="success">Cadastro efetuado com sucesso</div>
+                            <div id="mail_fail" className="error">Ops, algo deu errado no envio do cadastro</div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+        </section>
+        {/* section close */}
+        </>
+    );
+}
+
+export default SectionRegister;
