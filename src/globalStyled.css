@@ -1517,11 +1517,11 @@ border:solid 1px #ddd;
 	#contact_form{
 		margin-top:20px;
 	}
+	input#name,input.form-control,select.form-control,
 	.select-form-text,
 	#contact_form input[type=text],#contact_form textarea,#contact_form input[type=email],#contact_form input[type=number],#search{
 		padding:10px;
-		margin-bottom:20px;
-		color:#fff;
+		/* color:#fff; */
 		border:solid 1px rgba(0,0,0,.3);
 		background:rgba(0,0,0,.2);
 		border-radius:0 !important;
@@ -1797,7 +1797,7 @@ border:solid 1px #ddd;
 	-webkit-border-radius:0;
 	padding:3px;
 	padding-left:30px;
-	padding-right:50px;
+	padding-right:30px;
 	text-transform:uppercase;
 	display:inline-block;
 	text-align:center;
@@ -1890,11 +1890,11 @@ border:solid 1px #ddd;
 	color:#eceff3;
 	}
 
-	.btn-line:after, a.btn-line:after{
+	/* .btn-line:after, a.btn-line:after{
 	font-family:FontAwesome;
 	content: "\f054";
 	margin-left:10px;
-	}
+	} */
 
 	a.btn-line-black, .de_light a.btn-line-black{
 	border:solid 1px #111;

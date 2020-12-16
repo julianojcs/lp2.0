@@ -1,3 +1,135 @@
+import React from "react";
+import ReactDOM from "react-dom";
+import { Formik, Form, Field, ErrorMessage, withFormik } from "formik";
+import * as Yup from "yup";
+
+
+const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+const crmExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+
+
+const handleSubmit = async (values, actions) => {
+    const data = await new Promise((resolve) => {
+      window.setTimeout(() => resolve(values), 2000);
+    });
+    console.log(data);
+    actions.setSubmitting(false);
+    actions.resetForm();
+};
+
+
+const optionsUF = [
+    { id: 'placeholder', title: 'Selecione o seu Estado *' },
+    { id: 'AC', title: 'Acre' },
+    { id: 'AL', title: 'Alagoas' },
+    { id: 'AP', title: 'Amapa' },
+    { id: 'AM', title: 'Amazonas' },
+    { id: 'BA', title: 'Bahia' },
+    { id: 'CE', title: 'Ceará' },
+    { id: 'DF', title: 'Distrito Federal' },
+    { id: 'ES', title: 'Espirito Santo' },
+    { id: 'GO', title: 'Goiás' },
+    { id: 'MA', title: 'Maranhão' },
+    { id: 'MT', title: 'Mato Grosso' },
+    { id: 'MS', title: 'Mato Grosso do Sul' },
+    { id: 'MG', title: 'Minas Gerais' },
+    { id: 'PA', title: 'Pará' },
+    { id: 'PB', title: 'Paraíba' },
+    { id: 'PR', title: 'Paraná' },
+    { id: 'PE', title: 'Pernambuco' },
+    { id: 'PI', title: 'Piauí' },
+    { id: 'RJ', title: 'Rio de Janeiro' },
+    { id: 'RN', title: 'Rio Grande do Norte' },
+    { id: 'RS', title: 'Rio Grande do Sul' },
+    { id: 'RO', title: 'Rondônia' },
+    { id: 'RR', title: 'Roraima' },
+    { id: 'SC', title: 'Santa Catarina' },
+    { id: 'SP', title: 'São Paulo' },
+    { id: 'SE', title: 'Sergipe' },
+    { id: 'TO', title: 'Tocantins' },
+  ];
+
+const optionsUF_CRM = [
+{ id: 'placeholder', title: 'UF CRM *' },
+{ id: 'AC', title: 'Acre' },
+{ id: 'AL', title: 'Alagoas' },
+{ id: 'AP', title: 'Amapa' },
+{ id: 'AM', title: 'Amazonas' },
+{ id: 'BA', title: 'Bahia' },
+{ id: 'CE', title: 'Ceará' },
+{ id: 'DF', title: 'Distrito Federal' },
+{ id: 'ES', title: 'Espirito Santo' },
+{ id: 'GO', title: 'Goiás' },
+{ id: 'MA', title: 'Maranhão' },
+{ id: 'MT', title: 'Mato Grosso' },
+{ id: 'MS', title: 'Mato Grosso do Sul' },
+{ id: 'MG', title: 'Minas Gerais' },
+{ id: 'PA', title: 'Pará' },
+{ id: 'PB', title: 'Paraíba' },
+{ id: 'PR', title: 'Paraná' },
+{ id: 'PE', title: 'Pernambuco' },
+{ id: 'PI', title: 'Piauí' },
+{ id: 'RJ', title: 'Rio de Janeiro' },
+{ id: 'RN', title: 'Rio Grande do Norte' },
+{ id: 'RS', title: 'Rio Grande do Sul' },
+{ id: 'RO', title: 'Rondônia' },
+{ id: 'RR', title: 'Roraima' },
+{ id: 'SC', title: 'Santa Catarina' },
+{ id: 'SP', title: 'São Paulo' },
+{ id: 'SE', title: 'Sergipe' },
+{ id: 'TO', title: 'Tocantins' },
+]; 
+
+const LoginSchema = Yup.object().shape({
+        
+    name: Yup.string()
+        .min(5, "O nome deve ter no mínimo 3 caracteres")
+        .max(20, "o nome deve ter 20 caracteres no máximo")
+        .required("Nome é obrigatório "),
+        
+    email: Yup.string()
+        .lowercase('Email deve ser em letras minusculas')
+        .email("Formato de endereço de e-mail inválido")
+        .required("E-mail é obrigatório"),
+
+    // specialty: Yup.string()
+    //     .email("Formato de endereço de e-mail inválido")
+    //     .required("E-mail é obrigatório"),
+
+    // password: Yup.string()
+    //      .required("Senha é obrigatório")
+    //      .matches( /^(?=.*[A-Za-z])(?=.*\d)[\w\W]{8,100}$/,"Digite uma senha forte. Ex: Nbb_885522"),
+    //      .min(8)
+    //      .matches(RegExp("(.*[a-z].*)"), "Lowercase")
+    //      .matches(RegExp("(.*[A-Z].*)"), "Uppercase")
+    //      .matches(RegExp("(.*\\d.*)"), "Number")
+    //      .matches(RegExp('[!@#$%^&*(),.?":{}|<>]'), "Special")
+
+
+
+    contact: Yup.string()
+        .matches(phoneRegExp, "Número de telefone não é válido")
+        .required("Número de contato obrigatório"),
+
+    crm: Yup.string()
+        .matches(crmExp, "Número do CRM inválido")
+        .required("CRM obrigatório"),
+
+    state: Yup.string()
+        .oneOf(optionsUF, "Seleção inválida")
+        .required("Estado Obrigatório"),
+
+    city: Yup.string().required("Cidade é obrigatório"),
+
+    state_crm: Yup.string()
+        .oneOf(optionsUF_CRM, "Seleção inválida")
+        .required("CRM do Estado é Obrigatório"),
+
+
+    acceptTerms: Yup.bool().oneOf([true], 'Precisa assinar os termos')
+});
+
+
 const SectionRegister = () => {
     return(
         <>
@@ -12,113 +144,214 @@ const SectionRegister = () => {
                             <div className="spacer-single" />
                         </div>
                         <div className="col-md-8 offset-md-2 wow fadeInUp">
-                            <form name="contactForm" id="contact_form" method="post" action="email.php">
-                                <div className="row">
-                                    <div className="col-md-6 mb-0">
+                            <Formik name="contactForm" id="contact_form"
+                                initialValues={{
+                                    email: "",
+                                    state: "",
+                                    city: "",
+                                    state_crm:"",
+                                    crm: "",
+                                    specialty: "",
+                                    name: "",
+                                    contact: "",
+                                    acceptTerms: false
+                                }}
+                                validationSchema={LoginSchema}
+                                onSubmit={handleSubmit}
+                                >
+                                {({ handleChange, touched, errors, isSubmitting }) => (
+                                    <Form>
+                                        <div className="row">
+                                            <div className="col-md-6 mb-0">
 
-                                        <input type="text" name="name" id="name" className="form-control" placeholder="Nome Completo *" />
+                                                <div className="form-group">
+                                                    <Field
+                                                    type="text"
+                                                    name="name"
+                                                    placeholder="Nome Completo*"
+                                                    className={`form-control ${
+                                                        touched.name && errors.name ? "is-invalid" : ""
+                                                    }`}
+                                                    />
+                                                    <ErrorMessage
+                                                    component="div"
+                                                    name="name"
+                                                    className="invalid-feedback"
+                                                    />
+                                                </div>
 
-                                        <input type="text" name="email" id="email" className="form-control" placeholder="Email *" />
+                                                <div className="form-group">
+                                                    <Field
+                                                    type="text"
+                                                    name="email"
+                                                    placeholder="Email*"
+                                                    className={`form-control ${
+                                                        touched.email && errors.email ? "is-invalid" : ""
+                                                    }`}
+                                                    />
+                                                    <ErrorMessage
+                                                    component="div"
+                                                    name="email"
+                                                    className="invalid-feedback"
+                                                    />
+                                                </div>
 
-                                        <input type="text" name="specialty" id="specialty" className="form-control" placeholder="Especialidade *" />
+                                                
+                                                <div className="form-group">
+                                                    <Field
+                                                        type="text"
+                                                        name="specialty"
+                                                        placeholder="Especialidade"
+                                                        className={`form-control ${
+                                                            touched.specialty && errors.specialty ? "is-invalid" : ""
+                                                        }`}
+                                                        />
+                                                        <ErrorMessage
+                                                        component="div"
+                                                        name="city"
+                                                        className="invalid-feedback"
+                                                    />
+                                                </div>
 
-                                        <input type="text" name="phone" id="phone" className="form-control" placeholder="Telefone com DDD *" />
+                                                <div className="form-group">
+                                                    <Field
+                                                        type="text"
+                                                        name="contact"
+                                                        placeholder="Telefone com DDD *"
+                                                        className={`form-control ${
+                                                            touched.contact && errors.contact ? "is-invalid" : ""
+                                                        }`}
+                                                        />
+                                                        <ErrorMessage
+                                                        component="div"
+                                                        name="contact"
+                                                        className="invalid-feedback"
+                                                    />
+                                                </div>
 
-                                    </div>
-                                    <div className="col-md-6">
-                                        
-                                    <input type="text" name="city" id="city" className="form-control" placeholder="Cidade *" />
+                                             </div>
+                                            
+                                            <div className="col-md-6">
 
-                                   
-                                    <div className="select-form ">
-                                        <select name="state" id="state" className="form-control select-form-text" placeholder="Estado *">
-                                        <option value selected>Estado *</option>
-                                        <option value="AC">Acre</option>
-                                        <option value="AL">Alagoas</option>
-                                        <option value="AP">Amapá</option>
-                                        <option value="AM">Amazonas</option>
-                                        <option value="BA">Bahia</option>
-                                        <option value="CE">Ceará</option>
-                                        <option value="DF">Distrito Federal</option>
-                                        <option value="ES">Espirito Santo</option>
-                                        <option value="GO">Goiás</option>
-                                        <option value="MA">Maranhão</option>
-                                        <option value="MT">Mato Grosso</option>
-                                        <option value="MS">Mato Grosso do Sul</option>
-                                        <option value="MG">Minas Gerais</option>
-                                        <option value="PA">Pará</option>
-                                        <option value="PB">Paraíba</option>
-                                        <option value="PR">Paraná</option>
-                                        <option value="PE">Pernambuco</option>
-                                        <option value="PI">Piauí</option>
-                                        <option value="RJ">Rio de Janeiro</option>
-                                        <option value="RN">Rio Grande do Norte</option>
-                                        <option value="RS">Rio Grande do Sul</option>
-                                        <option value="RO">Rondônia</option>
-                                        <option value="RR">Roraima</option>
-                                        <option value="SC">Santa Catarina</option>
-                                        <option value="SP">São Paulo</option>
-                                        <option value="SE">Sergipe</option>
-                                        <option value="TO">Tocantins</option>
-                                        </select>
-                                    </div>
-                                    <div id="crm_error" className="error">Insira um CRM Válido</div>
-                                    <div>
-                                        <input type="text" name="crm" id="crm" className="form-control" placeholder="CRM *" />
-                                    </div>
-                                    <div id="ufcrm_error" className="error">Insira seu estado</div>
-                                    <div className="select-form ">
-                                        <select name="ufcrm" id="ufcrm" className="form-control select-form-text" placeholder="Estado *">
-                                        <option value selected>Estado *</option>
-                                        <option value="AC">Acre</option>
-                                        <option value="AL">Alagoas</option>
-                                        <option value="AP">Amapá</option>
-                                        <option value="AM">Amazonas</option>
-                                        <option value="BA">Bahia</option>
-                                        <option value="CE">Ceará</option>
-                                        <option value="DF">Distrito Federal</option>
-                                        <option value="ES">Espirito Santo</option>
-                                        <option value="GO">Goiás</option>
-                                        <option value="MA">Maranhão</option>
-                                        <option value="MT">Mato Grosso</option>
-                                        <option value="MS">Mato Grosso do Sul</option>
-                                        <option value="MG">Minas Gerais</option>
-                                        <option value="PA">Pará</option>
-                                        <option value="PB">Paraíba</option>
-                                        <option value="PR">Paraná</option>
-                                        <option value="PE">Pernambuco</option>
-                                        <option value="PI">Piauí</option>
-                                        <option value="RJ">Rio de Janeiro</option>
-                                        <option value="RN">Rio Grande do Norte</option>
-                                        <option value="RS">Rio Grande do Sul</option>
-                                        <option value="RO">Rondônia</option>
-                                        <option value="RR">Roraima</option>
-                                        <option value="SC">Santa Catarina</option>
-                                        <option value="SP">São Paulo</option>
-                                        <option value="SE">Sergipe</option>
-                                        <option value="TO">Tocantins</option>
-                                        </select>
-                                    </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <form className="was-validated">
-                                <div className="custom-control custom-checkbox mb-3">
-                                    <div className="terms">
-                                        <input type="checkbox" classname="form-check-input" id="exampleCheck1" />
-                                        <label classname="form-check-label" htmlFor="exampleCheck1">
-                                            Declaro que as informações acima prestadas são verdadeiras e assumo a inteira responsabilidade pelas mesmas, ciente das penalidades cabíveis da lei.
-                                        </label>
-                                    </div>
-                                </div>
-                                <div className="row wow fadeInUp">
+                                                <div className="form-group">
+                                                    <Field
+                                                    type="text"
+                                                    name="city"
+                                                    placeholder="Cidade *"
+                                                    className={`form-control ${
+                                                        touched.city && errors.city ? "is-invalid" : ""
+                                                    }`}
+                                                    />
+                                                    <ErrorMessage
+                                                    component="div"
+                                                    name="city"
+                                                    className="invalid-feedback"
+                                                    />
+                                                </div> 
+
+                                                <div className="form-group">
+                                                    <Field
+                                                        name="state"
+                                                        component="select"
+                                                        placeholder="Estado *"
+                                                        onChange={handleChange}
+                                                        className={` form-control ${
+                                                            touched.state && errors.state ? "is-invalid" : ""
+                                                        }`}
+                                                        >
+                                                        {optionsUF.map((option) => (
+                                                                <option value={option.id} key={option.id}>
+                                                                    {option.title}
+                                                                </option>
+                                                            ))}
+                                                        </Field>
+
+                                                        <ErrorMessage
+                                                        component="div"
+                                                        name="state"
+                                                        className="invalid-feedback"
+                                                    />
+                                                </div>
+
+                                                <div className="form-group">
+                                                    <Field
+                                                        type="text"
+                                                        name="crm"
+                                                        placeholder="CRM *"
+                                                        className={`form-control ${
+                                                            touched.crm && errors.crm ? "is-invalid" : ""
+                                                        }`}
+                                                        />
+                                                        <ErrorMessage
+                                                        component="div"
+                                                        name="crm"
+                                                        className="invalid-feedback"
+                                                    />
+                                                </div>
+
+                                                <div className="form-group">
+                                                    <Field
+                                                        name="state_crm"
+                                                        component="select"
+                                                        placeholder="UF Estado *"
+                                                        onChange={handleChange}
+                                                        className={` form-control ${
+                                                            touched.state_crm && errors.state_crm ? "is-invalid" : ""
+                                                        }`}
+                                                        >
+                                                        {optionsUF_CRM.map((option) => (
+                                                                <option value={option.id} key={option.id}>
+                                                                {option.title}
+                                                                </option>
+                                                            ))}
+                                                        </Field>
+
+                                                        <ErrorMessage
+                                                        component="div"
+                                                        name="state_crm"
+                                                        className="invalid-feedback"
+                                                    />
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div className="form-group form-check">
+                                            <Field 
+                                                type="checkbox" 
+                                                name="acceptTerms" 
+                                                id="acceptTerms" 
+                                                className={'form-check-input ' + (
+                                                    errors.acceptTerms && touched.acceptTerms ? ' is-invalid' : ''
+                                                    )} 
+                                                />
+
+                                                <label htmlFor="acceptTerms" className="form-check-label">
+                                                    Declaro que as informações acima prestadas são verdadeiras e assumo a inteira responsabilidade pelas mesmas, ciente das penalidades cabíveis da lei.
+                                                </label>
+                                            <ErrorMessage name="acceptTerms" component="div" className="invalid-feedback" />
+                                        </div>
+
+                                         <div className="row wow fadeInUp">
                                     <div className="col-md-12 text-center">
-                                        <p id="submit">
-                                            <input type="submit" id="send_message" defaultValue="Inscrever-se" className="btn btn-line" />
-                                        </p>
+                                    <button
+                                            type="submit"
+                                            className="btn btn-line"
+                                            disabled={isSubmitting}
+                                        >
+                                            {isSubmitting ? "Cadastrando.." : "Inscrever-se"}                                           
+                                        </button>
                                     </div>
-                                </div>
-                            </form>
+                                </div>                
+                                    
+                                       
+                                        
+                                        
+                                                        
+                                    </Form>
+                                )}
+                                </Formik>
+ 
                         </div>
                     </div>
                 </div>
