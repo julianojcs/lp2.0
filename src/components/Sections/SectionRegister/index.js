@@ -15,29 +15,21 @@ const SectionRegister = () => {
                             <form name="contactForm" id="contact_form" method="post" action="email.php">
                                 <div className="row">
                                     <div className="col-md-6 mb-0">
-                                    <div id="name_error" className="error">Insira seu nome</div>
-                                    <div>
+
                                         <input type="text" name="name" id="name" className="form-control" placeholder="Nome Completo *" />
-                                    </div>
-                                    <div id="email_error" className="error">Insira seu E-mail</div>
-                                    <div>
+
                                         <input type="text" name="email" id="email" className="form-control" placeholder="Email *" />
-                                    </div>
-                                    <div id="specialty_error" className="error">Insira seu número de telefone</div>
-                                    <div>
+
                                         <input type="text" name="specialty" id="specialty" className="form-control" placeholder="Especialidade *" />
-                                    </div>
-                                    <div id="phone_error" className="error">Insira seu número de telefone</div>
-                                    <div>
+
                                         <input type="text" name="phone" id="phone" className="form-control" placeholder="Telefone com DDD *" />
-                                    </div>
+
                                     </div>
                                     <div className="col-md-6">
-                                    <div id="city_error" className="error">Insira sua cidade</div>
-                                    <div>
-                                        <input type="text" name="city" id="city" className="form-control" placeholder="Cidade *" />
-                                    </div>
-                                    <div id="state_error" className="error">Insira seu estado</div>
+                                        
+                                    <input type="text" name="city" id="city" className="form-control" placeholder="Cidade *" />
+
+                                   
                                     <div className="select-form ">
                                         <select name="state" id="state" className="form-control select-form-text" placeholder="Estado *">
                                         <option value selected>Estado *</option>
@@ -124,8 +116,6 @@ const SectionRegister = () => {
                                         <p id="submit">
                                             <input type="submit" id="send_message" defaultValue="Inscrever-se" className="btn btn-line" />
                                         </p>
-                                        <div id="mail_success" className="success">Cadastro efetuado com sucesso</div>
-                                        <div id="mail_fail" className="error">Ops, algo deu errado no envio do cadastro</div>
                                     </div>
                                 </div>
                             </form>

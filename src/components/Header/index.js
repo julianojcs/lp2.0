@@ -43,7 +43,6 @@ const Header = ({logoUrl}) => {
                     <li><a href="#section-speakers">Palestrantes<span /></a></li>
                     <li><a href="#section-schedule">Agenda<span /></a></li>
                     <li><a href="#section-register">Inscrição<span /></a></li>
-                    <li><a href="#section-register">Videos Anteriores<span /></a></li>
                     </ul>
                 </nav>
                 {/* mainmenu close */}

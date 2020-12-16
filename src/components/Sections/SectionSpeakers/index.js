@@ -8,14 +8,14 @@ const SectionSpeakers = () => {
     const [speaker] = useState(
         [
             {
-                avatar: '../../../images-event/team/4.jpg',
+                avatar: 'https://firebasestorage.googleapis.com/v0/b/rstcom20.appspot.com/o/companies%2Fnovalp%2Flp%2Fteam%2F4.jpg?alt=media&token=d25620ff-1d28-4adc-be81-3acea8236a34',
                 name: 'Dr Evan S. Dellon',
                 profission: 'Gastroenterologista',
                 description: 'Gastroenterologista acadêmico com treinamento formal em pesquisa em epidemiologia, pesquisa clínica e translacional, e desenho de ensaios clínicos. É responsável por uma pesquisa que se concentra em otimizar o diagnóstico, caracterizar a epidemiologia, estudar a patogênese e refinar o tratamento e o monitoramento de EEo, com o objetivo geral de melhorar o atendimento ao paciente e os resultados em EoE. É especialista reconhecido internacionalmente em esôfago eosinofílico.',
                 facebook: 'https://www.facebook.com/',
                 instagram: 'https://www.instagram.com/'        },
             {
-                avatar: '../../../images-event/team/1.jpg',
+                avatar: 'https://firebasestorage.googleapis.com/v0/b/rstcom20.appspot.com/o/companies%2Fnovalp%2Flp%2Fteam%2F1.jpg?alt=media&token=7839d629-7e9e-4798-9767-0d97ac043721',
                 name: 'Dr Vincenzo Savarino',
                 profission: 'Gastroenterologista',
                 description: 'Professor titular de gastroenterologia e diretor do departamento de medicina interna. Possui pós-graduação em doenças do aparelho digestivo e em medicina interna na Universidade de Gênova. Em 2008, se tornou diretor do departamento de medicina interna e especialidades médicas da universidade de Gênova. Diretor adjunto do departamento de medicina interna e especialidades médicas da Universidade de Gênova e diretor da escola de doutorado de medicina interna clínica-experimental da Universidade de Gênova.',
@@ -23,7 +23,7 @@ const SectionSpeakers = () => {
                 instagram: 'https://www.instagram.com/'
             },
             {
-                avatar: '../../../images-event/team/2.jpg',
+                avatar: 'https://firebasestorage.googleapis.com/v0/b/rstcom20.appspot.com/o/companies%2Fnovalp%2Flp%2Fteam%2F2.jpg?alt=media&token=e1ff2133-584b-41ee-a19a-a150979f2adc',
                 name: 'Dr Décio Chinzon',
                 profission: 'Gastroenterologista',
                 registerNumber: 'CRM/SP : 49552',
@@ -32,7 +32,7 @@ const SectionSpeakers = () => {
                 instagram: 'https://www.instagram.com/'
             },
             {
-                avatar: '../../../images-event/team/3.jpg',
+                avatar: 'https://firebasestorage.googleapis.com/v0/b/rstcom20.appspot.com/o/companies%2Fnovalp%2Flp%2Fteam%2F3.jpg?alt=media&token=32d327d4-d2be-4089-aaad-43cc151e89f6',
                 name: 'Dr Gerson Domingues',
                 profission: 'Gastroenterologista',
                 registerNumber: 'CRM/RJ: 52.46442-7',

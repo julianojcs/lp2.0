@@ -1,7 +1,7 @@
 const SectionAbout = () => {
     return(
         <>
-        <section id="section-about" data-bgimage="url(images-event/bg/4.jpg) top left">
+        <section id="section-about" data-bgimage="url(https://firebasestorage.googleapis.com/v0/b/rstcom20.appspot.com/o/companies%2Fnovalp%2Flp%2Fbg%2F4.jpg?alt=media&token=9bb4614c-4d18-45a3-a977-849155de90fd) top left">
         {/* <div class="wm wm-border light wow fadeInDown text-align">BemVindo</div> */}
             <div className="container">
                 <div className="row align-items-center">
@@ -16,9 +16,9 @@ const SectionAbout = () => {
                 </div>
                 <div className="col-lg-6 mb-sm-30 text-center wow fadeInRight">
                     <div className="de-images">
-                    <img className="di-small wow fadeIn" src="images-event/misc/2.jpg" alt="" />
-                    <img className="di-small-2" src="images-event/misc/3.jpg" alt="" />
-                    <img className="img-fluid wow fadeInRight" data-wow-delay=".25s" src="images-event/misc/1.jpg" alt="" />
+                    <img className="di-small wow fadeIn" src="https://firebasestorage.googleapis.com/v0/b/rstcom20.appspot.com/o/companies%2Fnovalp%2Flp%2Fmisc%2F2.jpg?alt=media&token=f5211450-9748-4e81-85e3-b14c75993cbe" alt="" />
+                    <img className="di-small-2" src="https://firebasestorage.googleapis.com/v0/b/rstcom20.appspot.com/o/companies%2Fnovalp%2Flp%2Fmisc%2F3.jpg?alt=media&token=6f121ae6-9712-40df-8231-bc711b185b93" alt="" />
+                    <img className="img-fluid wow fadeInRight" data-wow-delay=".25s" src="https://firebasestorage.googleapis.com/v0/b/rstcom20.appspot.com/o/companies%2Fnovalp%2Flp%2Fmisc%2F1.jpg?alt=media&token=2b42559d-471a-4720-a5c0-4a502a2704e1" alt="" />
                     </div>
                 </div>
                 </div>
