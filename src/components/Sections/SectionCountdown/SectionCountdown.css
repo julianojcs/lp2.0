@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&display=swap');
 
 .countdown-section {	
 	display: block;
@@ -43,12 +44,12 @@
 }
 
 .countdown-amount {
-	font-family: 'Montserrat',Arial, Helvetica, sans-serif;
-    font-size: 72px;
+	font-family: 'Roboto Mono', monospace, 'Montserrat',Arial, Helvetica, sans-serif;
+  font-size: 72px;
 	color:#fff;
 }
 .countdown-period {
-    display: block;
+  display: block;
 	width:70px;
 	margin:0 auto;
 	margin-top:5px;
